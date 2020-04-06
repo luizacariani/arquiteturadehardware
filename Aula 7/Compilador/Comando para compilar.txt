@@ -1,0 +1,2 @@
+avrasm2.exe -fI -o "Teamplate.hex"  -m "Teamplate.map"  -l "Teamplate.lss"  -e "Teamplate.eep"  -S "Teamplate.tmp"  -W+ie  -d "Debug\Teamplate.obj"  main.asm 
+
