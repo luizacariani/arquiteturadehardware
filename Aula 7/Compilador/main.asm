@@ -57,16 +57,18 @@
 ;Declarações:
 
 .ORG 0x0000              ; instrução inicial, é onde se inicia a memória de programa
-    rjmp INICIO           ; O vetor de reinício: pula para “main”
-      ;***coloque suas variáveis e declarações aqui***   
- DDRB = 0x3F; 
+    rjmp INICIO 
+         ;***coloque suas variáveis e declarações aqui***   
+
 ldi r24, 0x3F ; 
 out 0x04, r24 ; 
 INICIO:
-      ;***código principal vai aqui, inicializações e etc...***
-
-      ;*** rotinas de repetição ***
-      DDRB; 
-   rjmp LOOP                 
+      ;
+       LOOP:
+    in r24, 0x05 ;
+      andi r24, 0xD9 ;
+      out 0x05, r24 ;
+      rjmp LOOP
+   
       ;***seus procedimentos de atuação finitas vão aqui aqui o  programa vai finalizar no final***
 .EXIT 
